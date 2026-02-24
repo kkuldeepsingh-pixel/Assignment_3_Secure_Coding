@@ -1,0 +1,20 @@
+name: AppScan CodeSweep
+
+on:
+  push:
+    branches:
+      - master
+      - Assignment_3
+  pull_request:
+
+jobs:
+  codesweep:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run CodeSweep
+        uses: HCLTech/codesweep-github-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
